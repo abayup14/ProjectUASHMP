@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-list>
+      <ion-item>
+        <ion-input [(ngModel)]="login_username" label="Username" labelPlacement="floating"
+        placeholder="Masukkan Username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="login_password" label="Password"
+        type="password"
+        labelPlacement="floating" placeholder="Masukkan Password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button id="btnLogin" (click)="login()">
+          Login
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-label>Belum punya akun?</ion-label>
+          <ion-button id="btnReg" (click)="toReg()">Register</ion-button>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

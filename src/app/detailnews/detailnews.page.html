@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail Berita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ item.judul }}</ion-card-title>
+        <ion-img [src]="item.url_gambar"></ion-img>
+      </ion-card-header>
+      <ion-card-content>{{item.deskripsi}}</ion-card-content>
+      <ion-card-content>
+        <ion-label>Tujuan Instansi: </ion-label>
+        <ion-chip>{{ item.tujuan_instansi }}</ion-chip>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-row>
+          <ion-chip>
+            <ion-icon name="chatbox-sharp"></ion-icon>
+            <ion-label>{{ item.comment.length }}</ion-label>
+          </ion-chip>
+          <ion-chip (click)="addLike(item.id)">
+            <ion-icon name="thumbs-up-sharp"></ion-icon>
+            <ion-label>{{ item.jumlah_like }}</ion-label>
+          </ion-chip>
+        </ion-row>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-label style="font-weight: bold;">Comment:</ion-label>
+        <div *ngFor="let cmt of item.comment">
+          <ion-item>
+            <ion-card-subtitle>{{cmt}}</ion-card-subtitle>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

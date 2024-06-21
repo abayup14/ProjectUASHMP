@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Berita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title>Selamat Datang, {{ now_login_username }}</ion-title>
+  <ion-card *ngFor="let item of news;">
+    <ion-card-header routerLink="/detailnews/{{ item.id }}">
+      <ion-card-title style="text-align: center; font-weight: bold;">{{ item.judul }}</ion-card-title>
+      <ion-card-subtitle>{{ item.tanggal | date: 'dd-MM-yyyy' }}</ion-card-subtitle>
+      <ion-img [src]="item.url_gambar"></ion-img>
+    </ion-card-header>
+    <ion-card-content>{{ item.deskripsi }}</ion-card-content>
+    <ion-card-content>
+      <ion-label>Tujuan Instansi: </ion-label>
+      <ion-chip>{{ item.tujuan_instansi }}</ion-chip>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-row>
+        <ion-chip>
+          <ion-icon name="chatbox-sharp"></ion-icon>
+          <ion-label>{{ item.comment.length }}</ion-label>
+        </ion-chip>
+        <ion-chip (click)="addLike(item.id)">
+          <ion-icon name="thumbs-up-sharp"></ion-icon>
+          <ion-label>{{ item.jumlah_like }}</ion-label>
+        </ion-chip>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

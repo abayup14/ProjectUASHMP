@@ -1,0 +1,66 @@
+<ion-app>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+  <ion-menu *ngIf="hide()" auto-hide="true" content-id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu List</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/home">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <!-- <ion-menu-toggle>
+          <ion-item routerLink="/list">
+            <ion-icon name="list" slot="start"></ion-icon>
+            <ion-label>List</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/setting">
+            <ion-icon name="settings" slot="start"></ion-icon>
+            <ion-label>Settings</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+        <ion-menu-toggle>
+          <ion-item routerLink="/addnews">
+            <ion-icon slot="start" name="add"></ion-icon>
+            <ion-label>Tambah Berita</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/searchnews">
+            <ion-icon slot="start" name="search"></ion-icon>
+            <ion-label>Cari Berita</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/login">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" *ngIf="hide()">
+      <ion-tab-button tab="home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="addnews">
+        <ion-icon name="add"></ion-icon>
+        <ion-label>Tambah Berita</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="searchnews">
+        <ion-icon name="search"></ion-icon>
+        <ion-label>Cari Berita</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>

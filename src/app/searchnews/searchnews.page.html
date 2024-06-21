@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cari Berita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-item>
+      <ion-input labelPlacement="floating" placeholder="Masukkan Judul Berita" label="Search Judul Berita" [(ngModel)]="judul_berita" (keyup)="getBerita()"></ion-input>
+    </ion-item>
+    <ion-card *ngFor="let item of news;">
+      <ion-card-header routerLink="/detailnews/{{ item.id }}">
+        <ion-card-title style="text-align: center; font-weight: bold;">{{ item.judul }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>
