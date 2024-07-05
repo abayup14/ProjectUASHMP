@@ -12,14 +12,15 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title>{{ item.judul }}</ion-card-title>
-        <ion-img [src]="item.url_gambar"></ion-img>
+        <ion-card-subtitle>Dibuat oleh: {{ item.pembuat_berita }}</ion-card-subtitle>
+        <ion-img [src]="item.gambar_kejadian"></ion-img>
       </ion-card-header>
       <ion-card-content>{{item.deskripsi}}</ion-card-content>
       <ion-card-content>
         <ion-label>Tujuan Instansi: </ion-label>
         <ion-chip>{{ item.tujuan_instansi }}</ion-chip>
       </ion-card-content>
-      <ion-card-content>
+      <!-- <ion-card-content>
         <ion-row>
           <ion-chip>
             <ion-icon name="chatbox-sharp"></ion-icon>
@@ -30,15 +31,15 @@
             <ion-label>{{ item.jumlah_like }}</ion-label>
           </ion-chip>
         </ion-row>
-      </ion-card-content>
-      <ion-card-content>
+      </ion-card-content> -->
+      <!-- <ion-card-content>
         <ion-label style="font-weight: bold;">Comment:</ion-label>
         <div *ngFor="let cmt of item.comment">
           <ion-item>
             <ion-card-subtitle>{{cmt}}</ion-card-subtitle>
           </ion-item>
         </div>
-      </ion-card-content>
+      </ion-card-content> -->
     </ion-card>
   </div>
 </ion-content>

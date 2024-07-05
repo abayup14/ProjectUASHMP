@@ -9,20 +9,23 @@ import { NewsService } from '../news.service';
 })
 export class DetailnewsPage implements OnInit {
   id = 0
-  // news:any[] = []
-  item:any
+  item:any = {}
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = params["id"] * 1
-    })
-    this.item = this.newsService.kejadianDetail(this.id)
+      this.id = +params['id'];
+      this.newsService.kejadianDetail(this.id).subscribe(
+        (data) => {
+          this.item = data;
+        }
+      );
+    });
   }
 
-  addLike(id: number) {
-    this.item = this.newsService.kejadianDetail(id)
-    this.item.jumlah_like++
-  }
+  // addLike(id: number) {
+  //   this.item = this.newsService.kejadianDetail(id)
+  //   this.item.jumlah_like++
+  // }
 }

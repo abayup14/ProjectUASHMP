@@ -10,7 +10,7 @@ import { UserserviceService } from '../userservice.service';
 export class HomePage {
   news:any[] = []
   now_login_username = ""
-  item:any
+  // item:any
 
   constructor(private newsService: NewsService, private userService: UserserviceService) {}
 
