@@ -30,7 +30,15 @@ const routes: Routes = [
   {
     path: 'searchnews',
     loadChildren: () => import('./searchnews/searchnews.module').then( m => m.SearchnewsPageModule)
+  },  {
+    path: 'draftnews',
+    loadChildren: () => import('./draftnews/draftnews.module').then( m => m.DraftnewsPageModule)
   },
+  {
+    path: 'listdraftnews',
+    loadChildren: () => import('./listdraftnews/listdraftnews.module').then( m => m.ListdraftnewsPageModule)
+  },
+
 ];
 
 @NgModule({
