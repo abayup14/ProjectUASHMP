@@ -18,6 +18,7 @@ export class HomePage {
     this.newsService.kejadianList().subscribe(
       (data) => {
         this.news = data;
+        this.now_login_username = localStorage.getItem("fullname") ?? "";
       });
 
     // this.now_login_username = this.userService.now_username_login

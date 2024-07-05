@@ -16,4 +16,12 @@ export class AppComponent {
       return true
     }
   }
+
+  logout() {
+    localStorage.removeItem("id");
+    localStorage.removeItem("username");
+    localStorage.removeItem("fullname");
+    localStorage.removeItem("foto_profil");
+    this.router.navigate(['/login']);
+  }
 }

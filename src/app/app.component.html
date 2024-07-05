@@ -39,7 +39,19 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item routerLink="/login">
+          <ion-item routerLink="/draftnews">
+            <ion-icon slot="start" name="add"></ion-icon>
+            <ion-label>Tambah Draft Berita</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/listdraftnews">
+            <ion-icon slot="start" name="list"></ion-icon>
+            <ion-label>Draft Berita</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item (click)="logout()">
             <ion-icon slot="start" name="log-out"></ion-icon>
             <ion-label>Logout</ion-label>
           </ion-item>
