@@ -1,6 +1,6 @@
 <ion-app>
   <ion-router-outlet id="main-content"></ion-router-outlet>
-  <ion-menu auto-hide="true" content-id="main-content">
+  <ion-menu *ngIf="hide()" auto-hide="true" content-id="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-title>Menu List</ion-title>
