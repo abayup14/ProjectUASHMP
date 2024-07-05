@@ -1,13 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>draftnews</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tambah Berita</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">draftnews</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="container">
+    <ion-list>
+      <ion-item>
+        <ion-input [(ngModel)]="new_judul" label="Judul" placeholder="Masukkan Judul" labelPlacement="floating">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea [(ngModel)]="new_deskripsi" label="Deskripsi" placeholder="Masukkan Deskripsi" labelPlacement="floating"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="new_url" label="Gambar" placeholder="Masukkan URL Gambar" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="new_tujuan" label="Tujuan Instansi" labelPlacement="floating">
+          <ion-select-option *ngFor="let tujuan of arr_tujuan">
+            {{tujuan}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tanggal</ion-label>
+        <ion-datetime [(ngModel)]="new_tanggal" display-format="DD MMM YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-button id="btnAdd"
+          (click)="addDraftNews()">
+          Add Draft News
+        </ion-button>
+        <ion-alert trigger="btnAdd" header="News Information" message="Data Successfully Stored" [buttons]="alertButtons"></ion-alert>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

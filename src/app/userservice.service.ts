@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserserviceService {
-  now_username_login = "";
   // users = [];
 
   link = "https://ubaya.me/hybrid/160421058/project_uas/"
