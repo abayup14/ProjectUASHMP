@@ -25,17 +25,17 @@ export class AddnewsPage implements OnInit {
 
   public alertButtons = ['OK'];
 
-  addNews() {
-    this.newsService.addNews(this.newsService.news.length+1, this.userService.now_username_login, this.new_judul, this.new_deskripsi, this.new_url, this.new_tujuan, this.new_tanggal, 0)
+  // addNews() {
+  //   this.newsService.addNews(this.newsService.news.length+1, this.userService.now_username_login, this.new_judul, this.new_deskripsi, this.new_url, this.new_tujuan, this.new_tanggal, 0)
 
-    this.new_judul = ""
-    this.new_deskripsi = ""
-    this.new_url = ""
-    this.new_tujuan = "Tidak tahu"
-    this.new_tanggal = new Date().toISOString()
+  //   this.new_judul = ""
+  //   this.new_deskripsi = ""
+  //   this.new_url = ""
+  //   this.new_tujuan = "Tidak tahu"
+  //   this.new_tanggal = new Date().toISOString()
 
-    this.newsService.sortByDate(false)
-    this.router.navigate(['/home'])
-  }
+  //   this.newsService.sortByDate(false)
+  //   this.router.navigate(['/home'])
+  // }
 
 }

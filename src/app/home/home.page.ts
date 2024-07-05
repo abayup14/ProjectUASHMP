@@ -15,13 +15,16 @@ export class HomePage {
   constructor(private newsService: NewsService, private userService: UserserviceService) {}
 
   ngOnInit() {
-    this.newsService.sortByDate(false)
-    this.news = this.newsService.news
-    this.now_login_username = this.userService.now_username_login
+    this.newsService.kejadianList().subscribe(
+      (data) => {
+        this.news = data;
+      });
+
+    // this.now_login_username = this.userService.now_username_login
   }
 
-  addLike(id: number) {
-    this.item = this.newsService.getNewsByID(id)
-    this.item.jumlah_like++
-  }
+  // addLike(id: number) {
+  //   this.item = this.newsService.getNewsByID(id)
+  //   this.item.jumlah_like++
+  // }
 }

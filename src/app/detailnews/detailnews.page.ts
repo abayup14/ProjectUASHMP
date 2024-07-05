@@ -18,11 +18,11 @@ export class DetailnewsPage implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params["id"] * 1
     })
-    this.item = this.newsService.getNewsByID(this.id)
+    this.item = this.newsService.kejadianDetail(this.id)
   }
 
   addLike(id: number) {
-    this.item = this.newsService.getNewsByID(id)
+    this.item = this.newsService.kejadianDetail(id)
     this.item.jumlah_like++
   }
 }
