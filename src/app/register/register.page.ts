@@ -17,30 +17,36 @@ export class RegisterPage implements OnInit {
 
   alertButtons = ['OK'];
 
-  constructor(private userservice: UserserviceService, private router: Router, private alertController: AlertController) { }
+  constructor(
+    private userservice: UserserviceService,
+    private router: Router,
+    private alertController: AlertController) { }
 
   ngOnInit() {
+    this.new_username = ""
+    this.new_namaLengkap = ""
+    this.new_pass = ""
+    this.new_url = ""
   }
 
   async register() {
-    if (this.userservice.users.find(u => u.username === this.new_username && u.fullname === this.new_namaLengkap)) {
-      this.alert_message = "Gagal Register. Username sudah terdaftar"
-    } else {
-      this.alert_message = "Berhasil Register"
-      this.userservice.addUser(
-        this.new_username,
-        this.new_namaLengkap,
-        this.new_url,
-        this.new_pass
-      )
-
-      this.new_username = ""
-      this.new_namaLengkap = ""
-      this.new_url = ""
-      this.new_pass = ""
-
-      this.router.navigate(["/login"])
-    }
+    this.userservice.register(
+      this.new_username,
+      this.new_namaLengkap,
+      this.new_pass,
+      this.new_url
+    ).subscribe(
+      (response: any) => {
+        if (response.result === "success") {
+          this.alert_message = "Berhasil Register"
+          this.new_username = ""
+          this.new_namaLengkap = ""
+          this.new_url = ""
+          this.new_pass = ""
+          this.router.navigate(["/login"])
+        }
+      }
+    )
 
     await this.presentAlert()
   }
