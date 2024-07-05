@@ -15,8 +15,7 @@ export class DetailnewsPage implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.newsService.kejadianDetail(this.id).subscribe(
+      this.newsService.kejadianDetail(params['id']).subscribe(
         (data) => {
           this.item = data;
         }
