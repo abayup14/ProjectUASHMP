@@ -5,9 +5,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">listdraftnews</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let item of news;">
+    <ion-card-header>
+      <ion-card-title style="text-align: center; font-weight: bold;">{{ item.judul }}</ion-card-title>
+      <ion-card-subtitle>Published: {{ item.tanggal | date: 'dd-MM-yyyy' }}</ion-card-subtitle>
+      <br>
+      <ion-img [src]="item.gambar"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      Deskripsi : {{ item.deskripsi }}
+      <ion-label>Tujuan Instansi: </ion-label>
+      <ion-chip>{{ item.nama_tujuan }}</ion-chip>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button color="success">
+        <ion-icon name="arrow-up"></ion-icon>
+        PUBLISH
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

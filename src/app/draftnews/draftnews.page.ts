@@ -16,7 +16,7 @@ export class DraftnewsPage implements OnInit {
   new_tanggal = new Date().toISOString()
   arr_tujuan: any[] = []
   public alertButtons = ['OK'];
-
+  nama_tujuan = ""
 
   constructor(private news: NewsService, private dexie:DexieService) { }
 
@@ -35,11 +35,24 @@ export class DraftnewsPage implements OnInit {
   }
 
   addDraftNews(judul:string, desk:string, url:string, tujuan:number, tanggal:string) {
+    if (tujuan == 1) {
+      this.nama_tujuan = "Pemkot"
+    } else if (tujuan == 2) {
+      this.nama_tujuan = "PLN"
+    } else if (tujuan == 3) {
+      this.nama_tujuan = "PDAM"
+    } else if (tujuan == 4) {
+      this.nama_tujuan = "Polisi"
+    } else {
+      this.nama_tujuan = "Tidak Tahu"
+    }
+
     this.dexie.addNews(
       judul,
       desk,
       url,
       tujuan,
+      this.nama_tujuan,
       tanggal,
       this.new_id
     ).then(

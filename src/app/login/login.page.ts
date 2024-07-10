@@ -48,17 +48,16 @@ export class LoginPage implements OnInit {
         if(response.result==='success'){
           alert("Login Success")
           this.fullname=response.fullname
-          localStorage.setItem("id", this.user_id)
-          localStorage.setItem("username",this.username)
-          localStorage.setItem("fullname",this.fullname)
-          localStorage.setItem("foto_profil",this.foto_profil)
+          localStorage.setItem("id", response.id)
+          localStorage.setItem("username",response.username)
+          localStorage.setItem("fullname",response.fullname)
+          localStorage.setItem("foto_profil",response.foto_profil)
           this.router.navigate(["/home"])
         } else {
           alert(response.message)
         }
       });
 
-      await this.presentAlert();
     }
 
   async presentAlert() {
