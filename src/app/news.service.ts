@@ -74,6 +74,10 @@ export class NewsService {
     return this.http.get(this.link + "/kejadian_detail.php?id=" + id);
   }
 
+  listTujuanInstansi(): Observable<any> {
+    return this.http.get(this.link + "/get_tujuan_instansi.php");
+  }
+
   addKejadian(k_judul: string, k_deskripsi: string,  k_gambar_kejadian: string, k_jumlah_like:number, k_tanggal: string, k_users_id: number, k_tujuan_instansi_id: number) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = new URLSearchParams();

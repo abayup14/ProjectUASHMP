@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DexieService } from '../dexie.service';
 
 @Component({
   selector: 'app-listdraftnews',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListdraftnewsPage implements OnInit {
 
-  constructor() { }
+  constructor(private dexie:DexieService) { }
 
   ngOnInit() {
   }
