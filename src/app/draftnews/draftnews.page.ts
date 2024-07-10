@@ -13,7 +13,7 @@ export class DraftnewsPage implements OnInit {
   new_deskripsi = ""
   new_url = ""
   new_tujuan = 0
-  new_tanggal = new Date().toISOString()
+  new_tanggal = new Date().toDateString()
   arr_tujuan: any[] = []
   public alertButtons = ['OK'];
   nama_tujuan = ""

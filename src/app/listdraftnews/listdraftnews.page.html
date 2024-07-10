@@ -14,11 +14,12 @@
     </ion-card-header>
     <ion-card-content>
       Deskripsi : {{ item.deskripsi }}
+      <br>
       <ion-label>Tujuan Instansi: </ion-label>
       <ion-chip>{{ item.nama_tujuan }}</ion-chip>
     </ion-card-content>
     <ion-card-content>
-      <ion-button color="success">
+      <ion-button color="success" (click)="publish(item.id!!)">
         <ion-icon name="arrow-up"></ion-icon>
         PUBLISH
       </ion-button>

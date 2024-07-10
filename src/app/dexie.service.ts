@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
 
 export interface MyNews {
+  id?: number,
   judul: string,
   deskripsi: string,
   gambar: string,
@@ -20,7 +21,7 @@ export class DexieService extends Dexie {
   constructor() {
     super("dbProjectUASHMP");
     this.version(1).stores({
-      listNews: "judul, deskripsi, gambar, tujuan_instansi, nama_tujuan, tanggal, user_id"
+      listNews: "++id, judul, deskripsi, gambar, tujuan_instansi, nama_tujuan, tanggal, user_id"
     });
 
     this.listNews = this.table("listNews");
@@ -40,5 +41,9 @@ export class DexieService extends Dexie {
 
    async getAllNews(): Promise<any[]> {
     return this.listNews.toArray();
+  }
+
+  async deleteNews(id:number): Promise<void> {
+    await this.listNews.delete(id);
   }
 }
