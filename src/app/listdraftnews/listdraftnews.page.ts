@@ -26,7 +26,6 @@ export class ListdraftnewsPage implements OnInit {
 
   publish(id:number) {
     var new_news = this.news.find(item => item.id === id);
-
     if (new_news) {
       this.newsService.addKejadian(
         new_news.judul,

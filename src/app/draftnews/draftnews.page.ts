@@ -46,7 +46,6 @@ export class DraftnewsPage implements OnInit {
     } else {
       this.nama_tujuan = "Tidak Tahu"
     }
-
     this.dexie.addNews(
       judul,
       desk,

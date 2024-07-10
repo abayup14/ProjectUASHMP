@@ -10,6 +10,7 @@ import { NewsService } from '../news.service';
 export class DetailnewsPage implements OnInit {
   id = 0
   item:any = {}
+  new_komen = ""
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
 
@@ -37,5 +38,17 @@ export class DetailnewsPage implements OnInit {
         alert(response.message)
       }
     });
+  }
+  addComment(id:number) {
+    this.newsService.addKomen(this.new_komen, id).subscribe(
+      (response: any) => {
+        if (response.result === 'success') {
+          alert("success")
+          this.new_komen = ""
+        } else {
+          alert(response.message)
+        }
+      }
+    )
   }
 }

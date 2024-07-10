@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Tambah Berita</ion-title>
+    <ion-title>Tambah Draft Berita</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -36,7 +36,6 @@
           (click)="addDraftNews(new_judul, new_deskripsi, new_url, new_tujuan, new_tanggal)">
           Add Draft News
         </ion-button>
-        <ion-alert trigger="btnAdd" header="News Information" message="Data Successfully Stored" [buttons]="alertButtons"></ion-alert>
       </ion-item>
     </ion-list>
   </div>

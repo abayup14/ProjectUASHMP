@@ -95,5 +95,15 @@ export class NewsService {
     return this.http.get(this.link + "/kejadian_search.php?search=" + search);
   }
 
+  addKomen(komen:string, idKejadian:number) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('komen', komen);
+    body.set('kejadian_id', idKejadian.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post(
+      this.link + "/new_comment.php", urlEncodedData, { headers });
+  }
+
   constructor(private http: HttpClient) { }
 }

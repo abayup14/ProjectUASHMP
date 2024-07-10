@@ -40,6 +40,12 @@
             <ion-card-subtitle>{{cmt}}</ion-card-subtitle>
           </ion-item>
         </div>
+        <div>
+          <ion-item>
+            <ion-input [(ngModel)]="new_komen" label="Komentar" placeholder="Masukkan Komentar" labelPlacement="floating"></ion-input>
+            <ion-button id="btnAdd" (click)="addComment(item.id)">Add</ion-button>
+          </ion-item>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
