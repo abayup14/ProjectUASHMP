@@ -18,13 +18,19 @@ export class SearchnewsPage implements OnInit {
     this.news = [];
   }
 
-  // getBerita() {
-  //   if (this.judul_berita.trim() !== "") {
-  //     this.news = this.newsService.news.filter(newsItem =>
-  //       newsItem.judul.toLowerCase().includes(this.judul_berita.toLowerCase())
-  //     );
-  //   } else {
-  //     this.news = [];
-  //   }
-  // }
+  getBerita() {
+    if (this.judul_berita.trim() !== "") {
+      this.newsService.kejadianListSearch(this.judul_berita).subscribe(
+        (data) => {
+          this.news = data;
+        });
+
+
+      // this.news = this.newsService.news.filter(newsItem =>
+      //   newsItem.judul.toLowerCase().includes(this.judul_berita.toLowerCase())
+      // );
+    } else {
+      this.news = [];
+    }
+  }
 }
