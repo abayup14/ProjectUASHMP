@@ -58,14 +58,6 @@ export class NewsService {
   news = []
   link = "https://ubaya.me/hybrid/160421058/project_uas";
 
-  // sortByDate(ascending: boolean = false) {
-  //   this.news.sort((a, b) => {
-  //     const dateA = new Date(a.tanggal).getDate();
-  //     const dateB = new Date(b.tanggal).getDate();
-  //     return ascending ? dateA - dateB : dateB - dateA;
-  //   });
-  // }
-
   kejadianList(): Observable<any> {
     return this.http.get(this.link + "/kejadians.php");
   }
@@ -91,6 +83,13 @@ export class NewsService {
     const urlEncodedData = body.toString();
     return this.http.post(
       this.link + "/new_kejadian.php", urlEncodedData, { headers });
+  }
+
+  addLikeKejadian(id: number): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('id', id.toString()); const urlEncodedData = body.toString();
+    return this.http.post(this.link + "/kejadian_likes.php", urlEncodedData, { headers });
   }
 
   // addNews(n_id:number, n_username:string, n_judul:string, n_deskripsi:string, n_url_gambar:string, n_tujuan_instansi:string, n_tanggal:string, n_jumlah_like:number){
