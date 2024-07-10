@@ -91,5 +91,9 @@ export class NewsService {
     return this.http.post(this.link + "/kejadian_likes.php", urlEncodedData, { headers });
   }
 
+  kejadianListSearch(search: string): Observable<any> {
+    return this.http.get(this.link + "/kejadian_search.php?search=" + search);
+  }
+
   constructor(private http: HttpClient) { }
 }
