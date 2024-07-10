@@ -70,13 +70,12 @@ export class NewsService {
     return this.http.get(this.link + "/get_tujuan_instansi.php");
   }
 
-  addKejadian(k_judul: string, k_deskripsi: string,  k_gambar_kejadian: string, k_jumlah_like:number, k_tanggal: string, k_users_id: number, k_tujuan_instansi_id: number) {
+  addKejadian(k_judul: string, k_deskripsi: string,  k_gambar_kejadian: string, k_tanggal: string, k_users_id: number, k_tujuan_instansi_id: number) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = new URLSearchParams();
     body.set('judul', k_judul);
     body.set('deskripsi', k_deskripsi);
     body.set('gambar_kejadian', k_gambar_kejadian);
-    body.set('jumlah_like', k_jumlah_like.toString());
     body.set('tanggal', k_tanggal);
     body.set('users_id', k_users_id.toString());
     body.set('tujuan_instansi_id', k_tujuan_instansi_id.toString());
@@ -91,10 +90,6 @@ export class NewsService {
     body.set('id', id.toString()); const urlEncodedData = body.toString();
     return this.http.post(this.link + "/kejadian_likes.php", urlEncodedData, { headers });
   }
-
-  // addNews(n_id:number, n_username:string, n_judul:string, n_deskripsi:string, n_url_gambar:string, n_tujuan_instansi:string, n_tanggal:string, n_jumlah_like:number){
-  //   this.news.push({id:n_id, username:n_username, judul:n_judul, deskripsi:n_deskripsi, url_gambar:n_url_gambar, tujuan_instansi:n_tujuan_instansi, tanggal:n_tanggal, jumlah_like:n_jumlah_like, comment:[]})
-  // }
 
   constructor(private http: HttpClient) { }
 }

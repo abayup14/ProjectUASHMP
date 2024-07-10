@@ -22,8 +22,8 @@
       </ion-item>
       <ion-item>
         <ion-select [(ngModel)]="new_tujuan" label="Tujuan Instansi" labelPlacement="floating">
-          <ion-select-option *ngFor="let tujuan of arr_tujuan">
-            {{tujuan}}
+          <ion-select-option *ngFor="let tujuan of arr_tujuan" value="{{tujuan.id}}">
+            {{tujuan.nama}}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -32,10 +32,10 @@
         <ion-datetime [(ngModel)]="new_tanggal" display-format="DD MMM YYYY"></ion-datetime>
       </ion-item>
       <ion-item>
-        <!-- <ion-button id="btnAdd"
+        <ion-button id="btnAdd"
           (click)="addNews()">
           Add
-        </ion-button> -->
+        </ion-button>
         <ion-alert trigger="btnAdd" header="News Information" message="Data Successfully Stored" [buttons]="alertButtons"></ion-alert>
       </ion-item>
     </ion-list>
