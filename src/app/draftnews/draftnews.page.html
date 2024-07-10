@@ -22,8 +22,8 @@
       </ion-item>
       <ion-item>
         <ion-select [(ngModel)]="new_tujuan" label="Tujuan Instansi" labelPlacement="floating">
-          <ion-select-option *ngFor="let tujuan of arr_tujuan">
-            {{tujuan}}
+          <ion-select-option *ngFor="let tujuan of arr_tujuan" value="{{tujuan.id}}">
+            {{tujuan.nama}}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -33,7 +33,7 @@
       </ion-item>
       <ion-item>
         <ion-button id="btnAdd"
-          (click)="addDraftNews()">
+          (click)="addDraftNews(new_judul, new_deskripsi, new_url, new_tujuan, new_tanggal)">
           Add Draft News
         </ion-button>
         <ion-alert trigger="btnAdd" header="News Information" message="Data Successfully Stored" [buttons]="alertButtons"></ion-alert>
