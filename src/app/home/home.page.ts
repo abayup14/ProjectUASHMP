@@ -10,7 +10,6 @@ import { UserserviceService } from '../userservice.service';
 export class HomePage {
   news:any[] = []
   now_login_username = ""
-  // item:any
 
   constructor(private newsService: NewsService, private userService: UserserviceService) {}
 
@@ -20,12 +19,21 @@ export class HomePage {
         this.news = data;
         this.now_login_username = localStorage.getItem("fullname") ?? "";
       });
-
-    // this.now_login_username = this.userService.now_username_login
   }
 
-  // addLike(id: number) {
-  //   this.item = this.newsService.getNewsByID(id)
-  //   this.item.jumlah_like++
-  // }
+  addLike(id: number) {
+    this.newsService.addLikeKejadian(id).subscribe((response: any) => {
+      if (response.result === 'success') {
+        alert("Berhasil like kejadian")
+        this.newsService.kejadianList().subscribe(
+          (data) => {
+            this.news = data;
+          }
+        );
+      }
+      else {
+        alert(response.message)
+      }
+    });
+  }
 }

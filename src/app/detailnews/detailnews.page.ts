@@ -23,8 +23,19 @@ export class DetailnewsPage implements OnInit {
     });
   }
 
-  // addLike(id: number) {
-  //   this.item = this.newsService.kejadianDetail(id)
-  //   this.item.jumlah_like++
-  // }
+  addLike(id: number) {
+    this.newsService.addLikeKejadian(id).subscribe((response: any) => {
+      if (response.result === 'success') {
+        alert("Berhasil like kejadian")
+        this.newsService.kejadianList().subscribe(
+          (data) => {
+            this.item = data;
+          }
+        );
+      }
+      else {
+        alert(response.message)
+      }
+    });
+  }
 }
