@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit {
     ).subscribe(
       (response: any) => {
         if (response.result === "success") {
-          this.alert_message = "Berhasil Register"
+          alert("Berhasil Register")
           this.new_username = ""
           this.new_namaLengkap = ""
           this.new_url = ""
@@ -47,8 +47,6 @@ export class RegisterPage implements OnInit {
         }
       }
     )
-
-    await this.presentAlert()
   }
 
   async presentAlert() {

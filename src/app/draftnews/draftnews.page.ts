@@ -57,6 +57,12 @@ export class DraftnewsPage implements OnInit {
     ).then(
       () => {
         alert("News added successfully")
+        this.new_judul = ""
+        this.new_deskripsi = ""
+        this.new_url = ""
+        this.new_tujuan = 0;
+        this.new_tanggal = new Date().toDateString()
+        this.nama_tujuan = ""
       }
     ).catch(error => {
       alert("Error adding news: " + error)

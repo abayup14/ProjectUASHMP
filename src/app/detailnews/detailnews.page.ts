@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from '../news.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class DetailnewsPage implements OnInit {
   item:any = {}
   new_komen = ""
 
-  constructor(private route: ActivatedRoute, private newsService: NewsService) { }
+  constructor(private route: ActivatedRoute, private newsService: NewsService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
